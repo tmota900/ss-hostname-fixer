@@ -1,0 +1,41 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hostnamefixer
+spec:
+  schedule: "*/5 * * * *"
+  successfulJobsHistoryLimit: 5
+  failedJobsHistoryLimit: 5
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hostnamefixer
+            image: tmota900/ss-hostname-fixer:latest
+            imagePullPolicy: IfNotPresent
+            envFrom:
+              - configMapRef:
+                  name: hostnamefixer-config
+          restartPolicy: OnFailure
+---
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: hostnamefixer-deploy
+spec:
+  schedule: "*/5 * * * *"
+  successfulJobsHistoryLimit: 1
+  failedJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: hostnamefixer-deploy
+            image: tmota900/ss-hostname-fixer:latest
+            imagePullPolicy: IfNotPresent
+            envFrom:
+              - configMapRef:
+                  name: hostnamefixer-deploy-config
+          restartPolicy: OnFailure

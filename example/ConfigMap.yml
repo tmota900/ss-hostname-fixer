@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hostnamefixer-config
+  labels:
+    app: hostnamefixer
+data:
+  ZONE_ID: "6ms3epha2m9fyeu77xvfagqhs8gfhzfa"
+  RECORD_ID: "um56q3hrvbarptvmrhrk57ysfagn2err"
+  API_TOKEN: "YpTny8uBRuLK9jgvsNT2T2mIkLWMdJHEp7qQuqn9"
+  HOST_NAME: "example.com"
