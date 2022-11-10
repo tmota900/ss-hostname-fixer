@@ -35,3 +35,10 @@ curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records?pa
 ## Docker images
 
 You can find the docker images on [Docker Hub](https://hub.docker.com/r/tmota900/ss-hostname-fixer).
+
+### Docker Run Example
+
+``` bash
+docker pull tmota900/ss-hostname-fixer
+docker run -e API_TOKEN=123 -e ZONE_ID=123 -e RECORD_ID=123 -e HOST_NAME=example.com tmota900/ss-hostname-fixer
+```
