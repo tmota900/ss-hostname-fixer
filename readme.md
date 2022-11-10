@@ -16,6 +16,22 @@ List of required environment variables:
 Check our example folder for a Kubernetes CronJob example.
 Once the container is executed with the required environment variables, it will update the record with the current public ip address.
 
+## Where to find the zone id and record id
+
+- The zone id can be found in cloudflare dashboard, in overview of the domain.
+- The record id can be found in cloudflare api using the following url [API Documentation](https://api.cloudflare.com/#dns-records-for-a-zone-list-dns-records):
+
+`https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records`
+
+
+#### Example request
+``` bash
+curl -X GET "https://api.cloudflare.com/client/v4/zones/{zone_id}/dns_records?page=1&per_page=100&order=type&direction=desc&match=all" \
+     -H "Authorization: Bearer {api_token}" \
+     -H "Content-Type: application/json"
+```
+
+
 ## Docker images
 
 You can find the docker images on [Docker Hub](https://hub.docker.com/r/tmota900/ss-hostname-fixer).
