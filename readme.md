@@ -12,6 +12,11 @@ List of required environment variables:
 * `HOST_NAME` - The name of the record you want to update
 * `PROXIED` (optional) - If the record should be proxied or not (true/false) (default: true)
 
+run:
+``` bash
+API_TOKEN=123 ZONE_ID=123 RECORD_ID=123 HOST_NAME=example.com ./hostfix.sh
+```
+
 ## Example
 
 Check our example folder for a Kubernetes CronJob example.
