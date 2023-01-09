@@ -10,6 +10,7 @@ List of required environment variables:
 * `ZONE_ID` - The zone id of the domain you want to update
 * `RECORD_ID` - The record id of the record you want to update
 * `HOST_NAME` - The name of the record you want to update
+* `PROXIED` (optional) - If the record should be proxied or not (true/false) (default: true)
 
 ## Example
 
